@@ -1,9 +1,9 @@
 //
 //  LuisPa 2017/01/05
 //
-//  Este program se queda en el background com daemon para 
+//  Este program se queda en el background com daemon para
 //  hacer una petición diaria al servidor de Movistar Plus
-//  para bajarse el EPG. Además, al arrancar, crea los 
+//  para bajarse el EPG. Además, al arrancar, crea los
 //  ficheros /tmp/tvHOME.m3u y /tmp/tvREMOTE.m3u
 //
 'use strict';
@@ -27,45 +27,47 @@ let timerSessionController = undefined;
 let progPreferences = {
 
   // CADENAS:
-  // 
-  // Variable que apunta al array de cadenas (canales) que voy a 
-  // usar para los clientes que se conecten por la LAN casera. 
+  //
+  // Variable que apunta al array de cadenas (canales) que voy a
+  // usar para los clientes que se conecten por la LAN casera.
   cadenasHOME: CadenasHOME,
   // Canales dinámicos que sobreescriben la fuente en el fichero m3u,
-  // permite añadir canales de forma dinámica pero sin tocar los 
-  // originales. 
+  // permite añadir canales de forma dinámica pero sin tocar los
+  // originales.
   cadenasHOME_din: CadenasHOME_din,
 
   // Variable que apunta al array de cadenas SD que voy a usar
-  // en los dispositivos Wifi para consumir menos ancho de banda. 
+  // en los dispositivos Wifi para consumir menos ancho de banda.
   cadenasREMOTE: CadenasREMOTE,
   // Canales dinámicos que sobreescriben la fuente en el fichero m3u
   cadenasREMOTE_din: CadenasREMOTE_din,
 
 
-  // M3U: 
-  // 
+  // M3U:
+  //
   // Nombre del fichero de salida donde dejaré la lista de canales IPTV de cadenasHOME.js
-  ficheroM3U_HOME: '/tmp/tvHOME.m3u',
+  ficheroM3U_HOME: '/etc/tvheadend/tvHOME.m3u',
   // Nombre del fichero de salida donde dejaré la lista de canales IPTV de cadenasREMOTE.js
-  ficheroM3U_REMOTE: '/tmp/tvREMOTE.m3u',
+  ficheroM3U_REMOTE: '/etc/tvheadend/tvREMOTE.m3u',
 
-  // Durante la creación del fichero ficheroM3U_HOME se pone la URL del canal, pero como 
+  // Durante la creación del fichero ficheroM3U_HOME se pone la URL del canal, pero como
   // tenemos dos opciones (UDP o TCP) a continuación debes modificar la siguiente
-  // variable para adecuarlo a tu caso concreto. 
-  // 
-  // Este prefijo se pondrá delante del valor de "movistar_fuente"" que 
+  // variable para adecuarlo a tu caso concreto.
+  //
+  // Este prefijo se pondrá delante del valor de "movistar_fuente"" que
   // encuentras en el fichero src/cadenas*.js...
-  // 
-  // Ejemplos con UDP y TCP: 
+  //
+  // Ejemplos con UDP y TCP:
   // uri_prefix: 'rtp://@'
   // uri_prefix: 'http://x.x.x.x:yyy/udp/'
-  uri_prefix: 'http://192.168.100.1:4022/udp/',
+  // uri_prefix: 'http://192.168.100.1:4022/udp/',
+  //uri_prefix: 'rtp://@',
+  uri_prefix: 'http://192.168.11.3:4022/rtp/',
 
   // Respecto a XMLTV, el objetivo es crear un fichero XMLTV compatible con
   // "http://xmltv.cvs.sourceforge.net/viewvc/xmltv/xmltv/xmltv.dtd"
   //
-  // Ficheros XMLTV: En esta versión el proceso crea múltiples ficheros, 
+  // Ficheros XMLTV: En esta versión el proceso crea múltiples ficheros,
   // - Descargo el EPG que llega en formato XML "propio de Movistar" y lo salvo en "guia.movistar-xml.xml"
   // - Lo convierto a JSON y lo salvo en guia.movistar-xml.json, es una copia del original en XML pero traducida "tal cual" a JSON.
   // - A continuación cambio las "key's" de este fichero a un JSON ya preparado para su traducción sencilla a XMLTV, lo dejo en guia.movistar-xmltv.json
@@ -79,26 +81,26 @@ let progPreferences = {
   ficheroJSONTV: '/tmp/guia.movistar-xmltv.json',
   //
   // Fichero final:
-  ficheroXMLTV: '/home/luis/guia/guia.xml',
+  ficheroXMLTV: '/etc/tvheadend/guia.xml',
 
-  // 
-  // El programa ejecutará una descarga del EPG nada más arrancar y se quedará 
-  // en el background hasta una hora determinada del día siguiente. 
+  //
+  // El programa ejecutará una descarga del EPG nada más arrancar y se quedará
+  // en el background hasta una hora determinada del día siguiente.
   //
   // La hora se elegirá aleatoriamente entre los dos parámetros siguientes. En
   // el siguiente ejemplo estamos indicando que se elija una hora entre las
-  // dos y las siete de la mañana. Si quieres afinar más, puedes poner el mismo 
-  // valor a ambas variables pero te recomiendo dejarlo así, es una forma 
-  // elegante de NO sobrecargar a los servidores de Movistar. 
+  // dos y las siete de la mañana. Si quieres afinar más, puedes poner el mismo
+  // valor a ambas variables pero te recomiendo dejarlo así, es una forma
+  // elegante de NO sobrecargar a los servidores de Movistar.
   horaInicio: 2,
   horaFin: 6,
 
-  // Parámetros para hacer la solicitud a la Web de Movistar: 
+  // Parámetros para hacer la solicitud a la Web de Movistar:
   //
-  // urlMovistar: URI a donde haremos la petición POST. 
+  // urlMovistar: URI a donde haremos la petición POST.
   // dias: número de días de EPG que vamos a solicitar. Nota: he configurado
-  //       hardcoded que el máximo aceptado sean 7 (para no cargar a los 
-  //       servidores de movistar). 
+  //       hardcoded que el máximo aceptado sean 7 (para no cargar a los
+  //       servidores de movistar).
   urlMovistar: 'http://comunicacion.movistarplus.es/guiaProgramacion/exportar',
   dias: 7,
 
@@ -106,16 +108,16 @@ let progPreferences = {
   nextRunDate: 0,
   nextRunMilisegundos: 0,
 
-  // Para mostrar métricas en el log. 
+  // Para mostrar métricas en el log.
   numChannels: 0,
   numProgrammes: 0,
 
-  // Gestión interna, permite controlar que mientras que haya una conversión 
+  // Gestión interna, permite controlar que mientras que haya una conversión
   // en curso no se saldrá del programa.
-  isConversionRunning: false,
+  isConversionRunning: true,
 
   // Modo desarrollador (asume que ya se ha descargado el EPG),
-  developerMode: false, // Cambiar a 'false' en producción.
+  developerMode: true, // Cambiar a 'false' en producción.
 
 }
 
@@ -133,7 +135,7 @@ function comparaCadenasString(a,b) {
 function comparaCadenasInteger(a,b) {
   let aNum=Number(a.movistar_numero);
   let bNum=Number(b.movistar_numero);
-  
+
   if (aNum < bNum)
     return -1;
   if (aNum > bNum)
@@ -156,7 +158,14 @@ function creaFicheroM3U (cadenas, cadenas_din, ficheroM3U) {
   // añado los canales
   cadenas.map(cadena => {
     if ( cadena.tvh_m3u === true ) {
-      wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}",${cadena.tvh_nombre}\n`);
+      wstream.write(`#EXTINF:-1 tvh-epg="disable" tvg-id="${cadena.movistar_numero}" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}"`);
+      if ( cadena.tvh_categoria !== undefined ) {
+        wstream.write(` groups="${cadena.tvh_categoria}"`);
+      }
+      if ( cadena.movistar_id !== undefined ) {
+        wstream.write(` tvg-logo="http://www1.movistarplus.es/recorte/m-NEO/canal/${cadena.movistar_id}"`);
+      }
+      wstream.write(`,${cadena.tvh_nombre}\n`);
       if ( cadena.tvh_fuente !== undefined ) {
         wstream.write(`${cadena.tvh_fuente}\n`);
       } else {
@@ -169,7 +178,7 @@ function creaFicheroM3U (cadenas, cadenas_din, ficheroM3U) {
 }
 
 // =========================================================
-// Método principal 
+// Método principal
 // =========================================================
 
 function sessionController() {
@@ -177,15 +186,15 @@ function sessionController() {
   // Paro mi propio timer, lo re-programaré más tarde
   clearInterval(timerSessionController);
 
-  // M3U cadenasHOME : 
+  // M3U cadenasHOME :
   creaFicheroM3U(progPreferences.cadenasHOME, progPreferences.cadenasHOME_din, progPreferences.ficheroM3U_HOME);
 
-  // M3U cadenasHOME : 
+  // M3U cadenasHOME :
   creaFicheroM3U(progPreferences.cadenasREMOTE, progPreferences.cadenasREMOTE_din, progPreferences.ficheroM3U_REMOTE);
 
 
-  // XMLTV: 
-  // 
+  // XMLTV:
+  //
   // Calculo cuando tendré que hacer la proxima solicitud
   let ahora = new Date();
   progPreferences.dias = Utils.validaDias(progPreferences.dias);
@@ -193,14 +202,14 @@ function sessionController() {
   progPreferences.nextRunDate = Utils.horaAleatoriaTomorrow(progPreferences.horaInicio, progPreferences.horaFin);
   progPreferences.nextRunMilisegundos = progPreferences.nextRunDate - ahora;
   if (progPreferences.nextRunMilisegundos < 0) {
-    progPreferences.nextRunMilisegundos += 86400000; // dentro de 24h si algo falla   
+    progPreferences.nextRunMilisegundos += 86400000; // dentro de 24h si algo falla
   }
 
   // Inicio el proceso pidiendo el EPG a Movistar
   console.log('--');
   console.log(`Inicio del ciclo de consulta del EPG`);
   console.log('---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ');
-  if (progPreferences.developerMode === false) {
+  if (progPreferences.developerMode === true) {
     console.log(`1 - Descarga del EPG XML Movistar`);
     console.log(`  => PORT ${progPreferences.urlMovistar}`);
     console.log(`  => EPG ${progPreferences.diasInicioFin.fechaInicio} -> ${progPreferences.diasInicioFin.fechaFin}`);
@@ -213,7 +222,7 @@ function sessionController() {
             reject(error);
           } else {
             console.log(`  => El fichero se ha salvado correctamente`);
-            conversionCompletaDeEPGaXMLTV();      
+            conversionCompletaDeEPGaXMLTV();
           }
         });
       })
@@ -234,7 +243,7 @@ function sessionController() {
 function conversionCompletaDeEPGaXMLTV() {
   progPreferences.isConversionRunning = true;
   console.log(`1 - Descarga del EPG XML Movistar - OK`);
-  // 2 Convertir de formato XML entregado por Movistar a formato JSON intermedio  
+  // 2 Convertir de formato XML entregado por Movistar a formato JSON intermedio
   Utils.convierteXMLaJSON(progPreferences.ficheroXML)
     .then((datosJSON) => {
       console.log(`4 - Salva JSON Movistar ${progPreferences.ficheroJSON}`);
@@ -295,7 +304,7 @@ function conversionCompletaDeEPGaXMLTV() {
   // Comprobar si la conversión ha finalizado
   // Nota: Se ejecutará inmediatamente (10ms), es un truco
   // para ejecutarlo la primera vez de forma rápida y que él
-  // se auto reprograme con el intervalo que desee. 
+  // se auto reprograme con el intervalo que desee.
   timerConversion = setInterval(function () {
     monitorConversion();
   }, 10);
@@ -307,13 +316,13 @@ function conversionCompletaDeEPGaXMLTV() {
 // =========================================================
 function monitorConversion() {
   // Nada más entrar limpio mi timer, lo activaré después
-  // si realmente me hace falta. 
+  // si realmente me hace falta.
   clearInterval(timerConversion);
 
   // Verifico si sigue activa...
   if (progPreferences.isConversionRunning === false) {
     // Si la conversión termino (con error o correctamente)
-    // programo que el session controller se ejecute cuando 
+    // programo que el session controller se ejecute cuando
     // le toca...
     console.log(`Programo próxima descarga para el: ${JSON.stringify(progPreferences.nextRunDate.toString())} quedan ${Utils.convertirTiempo(progPreferences.nextRunMilisegundos)}`);
     timerSessionController = setInterval(function () {
@@ -336,7 +345,7 @@ function monitorConversion() {
 // Programo que se arranque el session controller
 // Nota: Se ejecutará inmediatamente (10ms), es un truco
 // para ejecutarlo la primera vez de forma rápida y que él
-// se auto reprograme con el intervalo que desee. 
+// se auto reprograme con el intervalo que desee.
 //
 timerSessionController = setInterval(function () {
   sessionController();
