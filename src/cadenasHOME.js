@@ -1,12 +1,12 @@
 //
 // LuisPa 2017/01/06
 //
-// Aquí configuro todos los canales de TV que quiero tener disponibles en los 
-// dispositivos que van por la red casera (LAN/Ethernet), por lo que voy a 
-// configurar las versiones HD de lo mismos (excepto aquellos que solo emiten en SD). 
+// Aquí configuro todos los canales de TV que quiero tener disponibles en los
+// dispositivos que van por la red casera (LAN/Ethernet), por lo que voy a
+// configurar las versiones HD de lo mismos (excepto aquellos que solo emiten en SD).
 //
-// DISCLAIMER: Seguro que faltarán algunos canales, bien porque no los 
-// consumo, mi demarcación o somplemente no los tengo contratados, 
+// DISCLAIMER: Seguro que faltarán algunos canales, bien porque no los
+// consumo, mi demarcación o somplemente no los tengo contratados,
 // edita este fichero a tu gusto
 //
 // URL's interesantes que he usado para investigar nombres los id's
@@ -23,7 +23,7 @@
 //   "movistar_nombre": "TV Galicia",         // Nombre del canal original que asigna Movistar. [Informativo y control]
 //   "movistar_numero": "151",                // Número de canal original que asigna Movistar. [M3U]
 //   "tvh_id": "TVG.es",                      // ID interno que pondré en el fichero M3U para tvheadend. [M3U]
-//     Es el identificativo del Canal que usa Tvheadend al importar el fichero 
+//     Es el identificativo del Canal que usa Tvheadend al importar el fichero
 //     XMLTV y su valor DEBE ser compatible con lo que manda el DTD de xmltv:
 //     http://xmltv.cvs.sourceforge.net/viewvc/xmltv/xmltv/xmltv.dtd
 //      "..Each channel has one id attribute, which must be unique and should
@@ -33,32 +33,21 @@
 //   "tvh_m3u": true,                         // Añadir este canal al fichero M3U para tvheadend. [M3U]
 //   "tvh_nombre": "TV Galicia",              // Nombre del canal que pondré en el fichero M3U para tvheadend. [M3U]
 //    "tvh_tag": "HD|HOME"                    // Identifica los Channel Tags (etiquetas) que quieres asignar al canal,   [M3U]
-//      Puedes poner varios separándolos por el símbolo " | " (pipe). En mi caso etiqueto los canales 
-//      de la siguiente forma: 
+//      Puedes poner varios separándolos por el símbolo " | " (pipe). En mi caso etiqueto los canales
+//      de la siguiente forma:
 //      - HD : Aquellos que emiten en HD.
-//      - SD : Los que emiten en SD. 
-//      - TV : Se lo asigno a todos aquellos canales que quiero que me salgan en las TV's, en principio 
-//             todos los que están en este fichero (cadenas.js) que considero como la lista principal 
-//             tener en los TV's en mi casa, ya sean HD o SD. La forma de conseguirlo es crar un usuario 
-//             para el KODI de la TV y asociar esta etiqueta "TV" a dicho usuario. 
+//      - SD : Los que emiten en SD.
+//      - TV : Se lo asigno a todos aquellos canales que quiero que me salgan en las TV's, en principio
+//             todos los que están en este fichero (cadenas.js) que considero como la lista principal
+//             tener en los TV's en mi casa, ya sean HD o SD. La forma de conseguirlo es crar un usuario
+//             para el KODI de la TV y asociar esta etiqueta "TV" a dicho usuario.
 //   "tvh_fuente": "http://user:pass@otro.servidor.com:9981/stream/chanelid/202116655?ticket=FA7504..."   [M3U]
-//      Este último campo verás que no lo uso pero lo he implementado porque estuve 
-//      haciendo pruebas haciendo que un par de canales tirasen desde OTRO Tvheadend. 
-//      Si tenemos este campo en la cadena entonces se usará a la hora de crear el M3U 
+//      Este último campo verás que no lo uso pero lo he implementado porque estuve
+//      haciendo pruebas haciendo que un par de canales tirasen desde OTRO Tvheadend.
+//      Si tenemos este campo en la cadena entonces se usará a la hora de crear el M3U
 //      en vez de [uri_prefix]{movistar_fuente}
 //
 const cadenasHOME = [
-  {
-    "movistar_epg": false,
-    "movistar_fuente": "239.0.5.185:8208",
-    "movistar_id": "DESCONOCIDO1",
-    "movistar_nombre": "Movistar+",
-    "movistar_numero": "0",
-    "tvh_id": "Movistar.es",
-    "tvh_m3u": false,
-    "tvh_nombre": "Movistar+",
-    "tvh_tag": "HD|HOME"
-  },
   {
     "movistar_epg": true,
     "movistar_fuente": "239.0.0.185:8208",
@@ -111,7 +100,7 @@ const cadenasHOME = [
     "movistar_numero": "5",
     "tvh_id": "T5.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Telecinco HD",
+    "tvh_nombre": "Tele 5 HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -122,7 +111,7 @@ const cadenasHOME = [
     "movistar_numero": "6",
     "tvh_id": "SEXTA.es",
     "tvh_m3u": true,
-    "tvh_nombre": "La Sexta HD",
+    "tvh_nombre": "laSexta HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -137,37 +126,15 @@ const cadenasHOME = [
     "tvh_tag": "HD|HOME"
   },
   {
-    "movistar_epg": false,
-    "movistar_fuente": "239.0.0.25:8208",
-    "movistar_id": "DESCONOCIDO2",
-    "movistar_nombre": "Telemadrid",
-    "movistar_numero": "8",
-    "tvh_id": "Telemadrid.es",
-    "tvh_m3u": true,
-    "tvh_nombre": "Telemadrid",
-    "tvh_tag": "SD|HOME"
-  },
-  {
     "movistar_epg": true,
-    "movistar_fuente": "239.0.0.26:8208",
-    "movistar_id": "OTRA",
-    "movistar_nombre": "La Otra",
-    "movistar_numero": "9",
-    "tvh_id": "OTRA.es",
+    "movistar_fuente": "239.0.3.37:8208",
+    "movistar_id": "TVGAL",
+    "movistar_nombre": "TV Galicia",
+    "movistar_numero": "8",
+    "tvh_id": "TVG.es",
     "tvh_m3u": true,
-    "tvh_nombre": "La Otra",
+    "tvh_nombre": "TVG",
     "tvh_tag": "SD|HOME"
-  },
-  {
-    "movistar_epg": false,
-    "movistar_fuente": "239.0.0.184:8208",
-    "movistar_id": "CABECERA_SERIES",
-    "movistar_nombre": "SERIES",
-    "movistar_numero": "10",
-    "tvh_id": "CABECERA_SERIES.es",
-    "tvh_m3u": true,
-    "tvh_nombre": "CABECERA SERIES HD",
-    "tvh_tag": "HD|HOME"
   },
   {
     "movistar_epg": true,
@@ -177,7 +144,7 @@ const cadenasHOME = [
     "movistar_numero": "11",
     "tvh_id": "CPSER.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Series HD",
+    "tvh_nombre": "M. Series HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -188,7 +155,7 @@ const cadenasHOME = [
     "movistar_numero": "12",
     "tvh_id": "MV2.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Series Xtra HD",
+    "tvh_nombre": "M. Series XtraHD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -243,7 +210,7 @@ const cadenasHOME = [
     "movistar_numero": "17",
     "tvh_id": "CL13.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Calle 13 HD",
+    "tvh_nombre": "Calle 13HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -287,7 +254,7 @@ const cadenasHOME = [
     "movistar_numero": "21",
     "tvh_id": "SET.es",
     "tvh_m3u": true,
-    "tvh_nombre": "AXN White HD",
+    "tvh_nombre": "AXN W. HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -298,7 +265,7 @@ const cadenasHOME = [
     "movistar_numero": "22",
     "tvh_id": "SCI-FI.es",
     "tvh_m3u": true,
-    "tvh_nombre": "SyFy HD",
+    "tvh_nombre": "SyfyHD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -320,7 +287,7 @@ const cadenasHOME = [
     "movistar_numero": "24",
     "tvh_id": "MTV.es",
     "tvh_m3u": true,
-    "tvh_nombre": "MTV",
+    "tvh_nombre": "MTV España",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -331,7 +298,7 @@ const cadenasHOME = [
     "movistar_numero": "25",
     "tvh_id": "FDFIC.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Factoría de Ficción",
+    "tvh_nombre": "FDF",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -368,15 +335,27 @@ const cadenasHOME = [
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.30:8208",
-    "movistar_id": "CABECERA_CINE",
-    "movistar_nombre": "CINE",
-    "movistar_numero": "30",
-    "tvh_id": "CABECERA_CINE.es",
+    "movistar_id": "ESPORT",
+    "movistar_nombre": "M. eSports",
+    "movistar_numero": "29",
+    "tvh_id": "ESPORT.es",
     "tvh_m3u": true,
-    "tvh_nombre": "CABECERA CINE",
-    "tvh_tag": "SD|HOME"
+    "tvh_nombre": "M. eSports HD",
+    "tvh_tag": "HD|HOME"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.5.193:8208",
+    "movistar_id": "MPRINC",
+    "movistar_nombre": "M. Disney Princess",
+    "movistar_numero": "30",
+    "tvh_categoria": "Children's|Youth programs",
+    "tvh_id": "MPRINC.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "M.Disney Princess",
+    "tvh_tag": "HD|HOME"
   },
   {
     "movistar_epg": true,
@@ -386,7 +365,7 @@ const cadenasHOME = [
     "movistar_numero": "31",
     "tvh_id": "MV1.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Estrenos HD",
+    "tvh_nombre": "M. Estrenos HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -397,7 +376,7 @@ const cadenasHOME = [
     "movistar_numero": "32",
     "tvh_id": "CPXTRA.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Xtra HD",
+    "tvh_nombre": "M. Xtra HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -408,7 +387,7 @@ const cadenasHOME = [
     "movistar_numero": "33",
     "tvh_id": "CPACCI.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Acción HD",
+    "tvh_nombre": "M. Acción HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -419,7 +398,7 @@ const cadenasHOME = [
     "movistar_numero": "34",
     "tvh_id": "CPCOME.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Comedia HD",
+    "tvh_nombre": "M. Comedia HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -430,7 +409,7 @@ const cadenasHOME = [
     "movistar_numero": "35",
     "tvh_id": "CPCOLE.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar DCine HD",
+    "tvh_nombre": "M. DCine HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -441,7 +420,7 @@ const cadenasHOME = [
     "movistar_numero": "36",
     "tvh_id": "DCESP.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Cine Español HD",
+    "tvh_nombre": "M. Cine Español",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -474,7 +453,7 @@ const cadenasHOME = [
     "movistar_numero": "39",
     "tvh_id": "SUNDAN.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Sundance Channel HD",
+    "tvh_nombre": "Sundance HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -503,11 +482,11 @@ const cadenasHOME = [
     "movistar_epg": true,
     "movistar_fuente": "239.0.0.34:8208",
     "movistar_id": "TEN",
-    "movistar_nombre": "TEN",
+    "movistar_nombre": "Ten",
     "movistar_numero": "42",
     "tvh_id": "TEN.es",
     "tvh_m3u": true,
-    "tvh_nombre": "TEN",
+    "tvh_nombre": "Ten",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -518,19 +497,18 @@ const cadenasHOME = [
     "movistar_numero": "43",
     "tvh_id": "PARCH.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Paramount Channel",
+    "tvh_nombre": "Paramount C.",
     "tvh_tag": "SD|HOME"
   },
   {
     "movistar_epg": false,
     "movistar_fuente": "239.0.0.180:8208",
-    "movistar_id": "CABECERA DEPORTES",
-    "movistar_nombre": "DEPORTES",
+    "movistar_nombre": "DEPORTES HD",
     "movistar_numero": "44",
     "tvh_categoria": "Sports",
-    "tvh_id": "CABECERA_DEPORTES.es",
+    "tvh_id": "DEPORTES.es",
     "tvh_m3u": true,
-    "tvh_nombre": "CABECERA DEPORTES HD",
+    "tvh_nombre": "DEPORTES",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -542,7 +520,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "CPFUT.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Fútbol HD",
+    "tvh_nombre": "M. Fútbol HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -554,7 +532,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "CPPART.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Partidazo HD",
+    "tvh_nombre": "M.Partidazo HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -566,7 +544,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "BELIGA.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Bein LaLiga HD",
+    "tvh_nombre": "beIN LaLiga HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -578,7 +556,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "BELIG1.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Bein LaLiga 1 HD",
+    "tvh_nombre": "beIN LaLiga 1 HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -590,7 +568,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "BELIG2.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Bein LaLiga 2 HD",
+    "tvh_nombre": "beIN LaLiga 2 HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -614,7 +592,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "BEMAX1.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Bein Max1 HD",
+    "tvh_nombre": "beIN MAX 1 HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -626,7 +604,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "BEMAX2.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Bein Max2",
+    "tvh_nombre": "beIN MAX 2 HD",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -642,7 +620,7 @@ const cadenasHOME = [
     "tvh_tag": "HD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.65:8208",
     "movistar_id": "BARNA",
     "movistar_nombre": "Barça TV",
@@ -662,7 +640,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "CPDEP.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Deportes 1 HD",
+    "tvh_nombre": "M. Deportes 1 HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -674,7 +652,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "CPD2.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Deportes 2 HD",
+    "tvh_nombre": "M. Deportes 2 HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -686,7 +664,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "MVF1.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Fórmula 1 HD",
+    "tvh_nombre": "M. Formula 1 HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -698,7 +676,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "MVMTGP.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Moto GP HD",
+    "tvh_nombre": "M. MotoGP HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -710,7 +688,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "GOLF.TV.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Golf HD",
+    "tvh_nombre": "M. Golf HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -740,11 +718,11 @@ const cadenasHOME = [
   {
     "movistar_epg": true,
     "movistar_fuente": "239.0.5.189:8208",
-    "movistar_id": "GOLHD",
+    "movistar_id": "GOL",
     "movistar_nombre": "GOL",
     "movistar_numero": "62",
     "tvh_categoria": "Sports",
-    "tvh_id": "GOLHD.es",
+    "tvh_id": "GOL.es",
     "tvh_m3u": true,
     "tvh_nombre": "GOL HD",
     "tvh_tag": "HD|HOME"
@@ -770,7 +748,7 @@ const cadenasHOME = [
     "tvh_categoria": "Sports",
     "tvh_id": "FUTREP.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Canal Fútbol Replay",
+    "tvh_nombre": "Futbol Replay",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -779,34 +757,35 @@ const cadenasHOME = [
     "movistar_id": "CAZPES",
     "movistar_nombre": "Caza y Pesca",
     "movistar_numero": "65",
-    "tvh_categoria": "Nature / Animals / Environment",
+    "tvh_categoria": "Nature|Animals|Environment",
     "tvh_id": "CAZPES.es",
     "tvh_m3u": true,
     "tvh_nombre": "Caza y Pesca HD",
     "tvh_tag": "HD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.5.188:8208",
     "movistar_id": "IBERAL",
     "movistar_nombre": "Iberalia TV",
     "movistar_numero": "66",
     "tvh_id": "IBERAL.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Iberalia TV HD",
     "tvh_tag": "HD|HOME"
   },
+
   {
     "movistar_epg": true,
-    "movistar_fuente": "239.0.0.191:8208",
-    "movistar_id": "CFERIA",
-    "movistar_nombre": "Toros TV",
-    "movistar_numero": "67",
-    "tvh_categoria": "Arts / Culture (without music)",
-    "tvh_id": "CFERIA.es",
+    "movistar_fuente": "239.0.7.1:8208",
+    "movistar_id": "ARTHUR",
+    "movistar_nombre": "Multideporte 1",
+    "movistar_numero": "68",
+    "tvh_categoria": "Sports",
+    "tvh_id": "ARTHUR.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Toros TV HD",
-    "tvh_tag": "HD|HOME"
+    "tvh_nombre": "Multideporte 1",
+    "tvh_tag": "SD|HOME"
   },
   {
     "movistar_epg": true,
@@ -814,10 +793,10 @@ const cadenasHOME = [
     "movistar_id": "NATGEO",
     "movistar_nombre": "National Geographic",
     "movistar_numero": "70",
-    "tvh_categoria": "Education / Science / Factual topics",
+    "tvh_categoria": "Education|Science|Factual topics",
     "tvh_id": "NATGEO.es",
     "tvh_m3u": true,
-    "tvh_nombre": "National Geographic HD",
+    "tvh_nombre": "NAT GEO HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -826,10 +805,10 @@ const cadenasHOME = [
     "movistar_id": "NATGW",
     "movistar_nombre": "Nat Geo Wild",
     "movistar_numero": "71",
-    "tvh_categoria": "Education / Science / Factual topics",
+    "tvh_categoria": "Education|Science|Factual topics",
     "tvh_id": "NATGW.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Nat Geo Wild HD",
+    "tvh_nombre": "NG Wild HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -838,7 +817,7 @@ const cadenasHOME = [
     "movistar_id": "HIST",
     "movistar_nombre": "Historia",
     "movistar_numero": "72",
-    "tvh_categoria": "Education / Science / Factual topics",
+    "tvh_categoria": "Education|Science|Factual topics",
     "tvh_id": "HIST.es",
     "tvh_m3u": true,
     "tvh_nombre": "Historia",
@@ -850,10 +829,10 @@ const cadenasHOME = [
     "movistar_id": "DCR",
     "movistar_nombre": "Discovery",
     "movistar_numero": "73",
-    "tvh_categoria": "Education / Science / Factual topics",
+    "tvh_categoria": "Education|Science|Factual topics",
     "tvh_id": "DCR.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Discovery Channel HD",
+    "tvh_nombre": "DSC HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -864,7 +843,7 @@ const cadenasHOME = [
     "movistar_numero": "74",
     "tvh_id": "ODISEA.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Odisea HD",
+    "tvh_nombre": "ODISEA HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -884,23 +863,23 @@ const cadenasHOME = [
     "movistar_id": "VJR",
     "movistar_nombre": "Viajar",
     "movistar_numero": "76",
-    "tvh_categoria": "Arts / Culture (without music)",
+    "tvh_categoria": "Arts|Culture (without music)",
     "tvh_id": "VJR.es",
     "tvh_m3u": true,
     "tvh_nombre": "Viajar HD",
     "tvh_tag": "HD|HOME"
-  }, 
+  },
   {
     "movistar_epg": true,
     "movistar_fuente": "239.0.0.32:8208",
     "movistar_id": "DCRMAX",
     "movistar_nombre": "Discovery Max",
     "movistar_numero": "77",
-    "tvh_categoria": "Arts / Culture (without music)",
-    "tvh_categoria": "Education / Science / Factual topics",
+    "tvh_categoria": "Arts|Culture (without music)",
+    "tvh_categoria": "Education|Science|Factual topics",
     "tvh_id": "DCRMAX.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Discovery Max",
+    "tvh_nombre": "DMAX",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -911,7 +890,7 @@ const cadenasHOME = [
     "movistar_numero": "78",
     "tvh_id": "CYM.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Crimen & Investigación",
+    "tvh_nombre": "Crimen + Inv.",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -922,7 +901,7 @@ const cadenasHOME = [
     "movistar_numero": "79",
     "tvh_id": "CCTV-E.es",
     "tvh_m3u": true,
-    "tvh_nombre": "CCTV Español",
+    "tvh_nombre": "CGTN Español",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -931,10 +910,10 @@ const cadenasHOME = [
     "movistar_id": "CACOC",
     "movistar_nombre": "Canal Cocina",
     "movistar_numero": "80",
-    "tvh_categoria": "Arts / Culture (without music)",
+    "tvh_categoria": "Arts|Culture (without music)",
     "tvh_id": "CACOC.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Canal Cocina",
+    "tvh_nombre": "Cocina",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -945,7 +924,7 @@ const cadenasHOME = [
     "movistar_numero": "81",
     "tvh_id": "DECASA.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Canal Decasa",
+    "tvh_nombre": "Decasa",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -989,7 +968,7 @@ const cadenasHOME = [
     "movistar_numero": "85",
     "tvh_id": "MEGA.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Mega",
+    "tvh_nombre": "MEGA",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1000,14 +979,14 @@ const cadenasHOME = [
     "movistar_numero": "86",
     "tvh_id": "BEMAD.es",
     "tvh_m3u": true,
-    "tvh_nombre": "BEMAD",
+    "tvh_nombre": "BeMad HD",
     "tvh_tag": "SD|HOME"
   },
   {
     "movistar_epg": true,
     "movistar_fuente": "239.0.0.99:8208",
     "movistar_id": "GARAGE",
-    "movistar_nombre": "Garage TV",
+    "movistar_nombre": "El Garage TV",
     "movistar_numero": "87",
     "tvh_id": "GARAGE.es",
     "tvh_m3u": true,
@@ -1031,7 +1010,7 @@ const cadenasHOME = [
     "movistar_id": "BABY",
     "movistar_nombre": "Baby TV",
     "movistar_numero": "90",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "BABY.es",
     "tvh_m3u": true,
     "tvh_nombre": "Baby TV",
@@ -1043,7 +1022,7 @@ const cadenasHOME = [
     "movistar_id": "PLAYDC",
     "movistar_nombre": "Disney Junior",
     "movistar_numero": "91",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "PLAYDC.es",
     "tvh_m3u": true,
     "tvh_nombre": "Disney Junior",
@@ -1055,7 +1034,7 @@ const cadenasHOME = [
     "movistar_id": "PANDA",
     "movistar_nombre": "Canal Panda",
     "movistar_numero": "92",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "PANDA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Canal Panda",
@@ -1067,7 +1046,7 @@ const cadenasHOME = [
     "movistar_id": "NICKJR",
     "movistar_nombre": "NICK JR",
     "movistar_numero": "93",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "NICKJR.es",
     "tvh_m3u": true,
     "tvh_nombre": "Nick Jr",
@@ -1079,7 +1058,7 @@ const cadenasHOME = [
     "movistar_id": "NICK",
     "movistar_nombre": "Nickelodeon",
     "movistar_numero": "94",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "NICK.es",
     "tvh_m3u": true,
     "tvh_nombre": "Nickelodeon",
@@ -1091,7 +1070,7 @@ const cadenasHOME = [
     "movistar_id": "DCHXD",
     "movistar_nombre": "Disney XD",
     "movistar_numero": "95",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "DCHXD.es",
     "tvh_m3u": true,
     "tvh_nombre": "Disney XD",
@@ -1103,10 +1082,10 @@ const cadenasHOME = [
     "movistar_id": "DCH",
     "movistar_nombre": "Disney Channel",
     "movistar_numero": "96",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "DCH.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Disney Channel HD",
+    "tvh_nombre": "Disney HD",
     "tvh_tag": "HD|HOME"
   },
   {
@@ -1115,7 +1094,7 @@ const cadenasHOME = [
     "movistar_id": "BOING",
     "movistar_nombre": "Boing",
     "movistar_numero": "97",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "BOING.es",
     "tvh_m3u": true,
     "tvh_nombre": "Boing",
@@ -1127,22 +1106,10 @@ const cadenasHOME = [
     "movistar_id": "CLANTV",
     "movistar_nombre": "Clan TVE",
     "movistar_numero": "98",
-    "tvh_categoria": "Children's / Youth programs",
+    "tvh_categoria": "Children's|Youth programs",
     "tvh_id": "CLANTV.es",
     "tvh_m3u": true,
     "tvh_nombre": "Clan TVE",
-    "tvh_tag": "SD|HOME"
-  },
-  {
-    "movistar_epg": true,
-    "movistar_fuente": "239.0.0.12:8208",
-    "movistar_id": "40TV",
-    "movistar_nombre": "Los40",
-    "movistar_numero": "103",
-    "tvh_categoria": "Music / Ballet / Dance",
-    "tvh_id": "Los40.es",
-    "tvh_m3u": true,
-    "tvh_nombre": "Los40",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1151,35 +1118,46 @@ const cadenasHOME = [
     "movistar_id": "VH1",
     "movistar_nombre": "VH1",
     "movistar_numero": "105",
-    "tvh_categoria": "Music / Ballet / Dance",
+    "tvh_categoria": "Music|Ballet|Dance",
     "tvh_id": "VH1.es",
     "tvh_m3u": true,
     "tvh_nombre": "VH1",
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.4.65:8208",
     "movistar_id": "MEZZO",
     "movistar_nombre": "Mezzo",
     "movistar_numero": "107",
-    "tvh_categoria": "Music / Ballet / Dance",
+    "tvh_categoria": "Music|Ballet|Dance",
     "tvh_id": "MEZZO.es",
-    "tvh_m3u": false,
-    "tvh_nombre": "Mezzo HD",
+    "tvh_m3u": true,
+    "tvh_nombre": "Mezzo",
     "tvh_tag": "HD|HOME"
   },
   {
-    "movistar_epg": false,
-    "movistar_fuente": "39.0.9.137:8208",
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.9.137:8208",
     "movistar_id": "CLASSI",
     "movistar_nombre": "Classica HD",
     "movistar_numero": "109",
-    "tvh_categoria": "Music / Ballet / Dance",
+    "tvh_categoria": "Music|Ballet|Dance",
     "tvh_id": "CLASSI.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Classica HD",
     "tvh_tag": "HD|HOME"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.5.3:8208",
+    "movistar_id": "PBOY",
+    "movistar_nombre": "Playboy TV",
+    "movistar_numero": "111",
+    "tvh_id": "PBOY.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Playboy",
+    "tvh_tag": "SD|HOME"
   },
   {
     "movistar_epg": true,
@@ -1187,10 +1165,10 @@ const cadenasHOME = [
     "movistar_id": "24H",
     "movistar_nombre": "24 Horas",
     "movistar_numero": "112",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "24H.es",
     "tvh_m3u": true,
-    "tvh_nombre": "24 Horas",
+    "tvh_nombre": "Canal 24 H.",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1199,10 +1177,10 @@ const cadenasHOME = [
     "movistar_id": "BBC",
     "movistar_nombre": "BBC World",
     "movistar_numero": "113",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "BBC.es",
     "tvh_m3u": true,
-    "tvh_nombre": "BBC World News",
+    "tvh_nombre": "BBC World",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1211,10 +1189,10 @@ const cadenasHOME = [
     "movistar_id": "CNN",
     "movistar_nombre": "CNN Int",
     "movistar_numero": "114",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "CNN.es",
     "tvh_m3u": true,
-    "tvh_nombre": "CNN International",
+    "tvh_nombre": "CNN Int.",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1223,7 +1201,7 @@ const cadenasHOME = [
     "movistar_id": "FOXNWS",
     "movistar_nombre": "Fox News",
     "movistar_numero": "115",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "FOXNWS.es",
     "tvh_m3u": true,
     "tvh_nombre": "FOX News",
@@ -1235,21 +1213,21 @@ const cadenasHOME = [
     "movistar_id": "ENW",
     "movistar_nombre": "Euronews",
     "movistar_numero": "116",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "ENW.es",
     "tvh_m3u": true,
     "tvh_nombre": "Euronews",
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.7.66:8208",
     "movistar_id": "ALJAZE",
-    "movistar_nombre": "Al Jazeera",
+    "movistar_nombre": "Al Jazeera English",
     "movistar_numero": "117",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "ALJAZE.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Al Jazeera",
     "tvh_tag": "SD|HOME"
   },
@@ -1259,7 +1237,7 @@ const cadenasHOME = [
     "movistar_id": "FRA EN",
     "movistar_nombre": "FRANCE 24",
     "movistar_numero": "118",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "FRA.EN.es",
     "tvh_m3u": true,
     "tvh_nombre": "France 24",
@@ -1271,10 +1249,10 @@ const cadenasHOME = [
     "movistar_id": "RTESP",
     "movistar_nombre": "RT Español",
     "movistar_numero": "119",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "RTESP.es",
     "tvh_m3u": true,
-    "tvh_nombre": "RT Español",
+    "tvh_nombre": "Russia T.",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1283,10 +1261,10 @@ const cadenasHOME = [
     "movistar_id": "NBC",
     "movistar_nombre": "CNBC",
     "movistar_numero": "120",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "NBC.es",
     "tvh_m3u": true,
-    "tvh_nombre": "CNBC Europe",
+    "tvh_nombre": "CNBC Eur.",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1295,10 +1273,10 @@ const cadenasHOME = [
     "movistar_id": "TV5",
     "movistar_nombre": "TV5MONDE",
     "movistar_numero": "122",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "TV5.es",
     "tvh_m3u": true,
-    "tvh_nombre": "TV5MONDE",
+    "tvh_nombre": "TV5 Monde",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1307,7 +1285,7 @@ const cadenasHOME = [
     "movistar_id": "BL",
     "movistar_nombre": "Bloomberg",
     "movistar_numero": "123",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "BL.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bloomberg",
@@ -1319,10 +1297,10 @@ const cadenasHOME = [
     "movistar_id": "INTECO",
     "movistar_nombre": "Intereconomía TV",
     "movistar_numero": "124",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "INTECO.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Intereconomía TV",
+    "tvh_nombre": "Intereconomía",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1331,7 +1309,7 @@ const cadenasHOME = [
     "movistar_id": "LIBDIG",
     "movistar_nombre": "Libertad Digital",
     "movistar_numero": "125",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "LIBDIG.es",
     "tvh_m3u": true,
     "tvh_nombre": "Libertad Digital",
@@ -1343,10 +1321,10 @@ const cadenasHOME = [
     "movistar_id": "312",
     "movistar_nombre": "i24news",
     "movistar_numero": "128",
-    "tvh_categoria": "News / Current affairs",
+    "tvh_categoria": "News|Current affairs",
     "tvh_id": "312.es",
     "tvh_m3u": true,
-    "tvh_nombre": "i24news",
+    "tvh_nombre": "I 24 News",
     "tvh_tag": "SD|HOME"
   },
   {
@@ -1394,7 +1372,7 @@ const cadenasHOME = [
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.8.2:8208",
     "movistar_id": "TVREC",
     "movistar_nombre": "TV RECORD",
@@ -1438,7 +1416,7 @@ const cadenasHOME = [
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.8.67:8208",
     "movistar_id": "CUBAV",
     "movistar_nombre": "Cubavisión",
@@ -1449,7 +1427,7 @@ const cadenasHOME = [
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.8.69:8208",
     "movistar_id": "TLESUR",
     "movistar_nombre": "Telesur",
@@ -1461,59 +1439,91 @@ const cadenasHOME = [
   },
   {
     "movistar_epg": false,
+    "movistar_fuente": "239.0.0.213:8208",
+    "movistar_id": "EWTN",
+    "movistar_nombre": "EWTN",
+    "movistar_numero": "143",
+    "tvh_id": "EWTN.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "EWTN",
+    "tvh_tag": "SD|HOME"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.7.193:8208",
+    "movistar_id": "PHOEN",
+    "movistar_nombre": "Phoenix Cine",
+    "movistar_numero": "145",
+    "tvh_id": "PHOEN.es",
+    "tvh_m3u": false,
+    "tvh_nombre": "Phoenix Cine",
+    "tvh_tag": "SD|HOME"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.7.194:8208",
+    "movistar_id": "INFONW",
+    "movistar_nombre": "Infonews Channel",
+    "movistar_numero": "146",
+    "tvh_id": "INFONW.es",
+    "tvh_m3u": false,
+    "tvh_nombre": "Infobews Channel",
+    "tvh_tag": "SD|HOME"
+  },
+  {
+    "movistar_epg": true,
     "movistar_fuente": "239.0.0.1:8208",
     "movistar_id": "ANTV",
     "movistar_nombre": "Canal Sur Andalucía",
     "movistar_numero": "150",
     "tvh_id": "ANTV.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Canal Sur Andalucía",
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
-    "movistar_fuente": "239.0.3.37:8208",
-    "movistar_id": "TVG",
-    "movistar_nombre": "TV Galicia",
-    "movistar_numero": "151",
-    "tvh_id": "TVG.es",
-    "tvh_m3u": false,
-    "tvh_nombre": "TV Galicia",
-    "tvh_tag": "SD|HOME"
-  },
-  {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.36:8208",
     "movistar_id": "TVC",
     "movistar_nombre": "TV3 Cat",
     "movistar_numero": "153",
     "tvh_id": "TVC.es",
-    "tvh_m3u": false,
-    "tvh_nombre": "TV3 Cat",
+    "tvh_m3u": true,
+    "tvh_nombre": "TV3CAT",
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.0.60:8208",
     "movistar_id": "ETB",
     "movistar_nombre": "ETB Sat",
     "movistar_numero": "154",
     "tvh_id": "ETB.es",
-    "tvh_m3u": false,
-    "tvh_nombre": "ETB Sat",
+    "tvh_m3u": true,
+    "tvh_nombre": "ETB Sat.",
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.0.81:8208",
     "movistar_id": "ARAGON",
     "movistar_nombre": "Aragón TV Int",
     "movistar_numero": "155",
     "tvh_id": "ARAGON.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Aragón TV Int",
     "tvh_tag": "SD|HOME"
-  }
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.5.185:8208",
+    "movistar_nombre": "Movistar+",
+    "movistar_numero": "9999",
+    "tvh_id": "Movistar.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar+",
+    "tvh_tag": "HD|HOME"
+  },
 ];
 
 

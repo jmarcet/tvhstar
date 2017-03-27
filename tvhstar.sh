@@ -1,3 +1,4 @@
 #!/bin/bash
-cd /home/luis/tvhstar
+
+cd /home/jmarcet/tvhstar
 npm run build && npm run start

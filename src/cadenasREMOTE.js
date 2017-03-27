@@ -1,23 +1,23 @@
 //
 // LuisPa 2017/01/06
 //
-// Este fichero solo se utiliza para la generación del M3U, no para EPG. 
+// Este fichero solo se utiliza para la generación del M3U, no para EPG.
 //
-// Disclaimer: 
+// Disclaimer:
 //
-// Aquí tenemos la lista de canales en SD que voy a añadir el fichero m3u con las 
+// Aquí tenemos la lista de canales en SD que voy a añadir el fichero m3u con las
 // etiquetas "SD|REMOTE". Como podrás observar aquí he puesto las versiones
-// en SD, con la fuente Movistar adecuada, de los canales que tengo en el 
+// en SD, con la fuente Movistar adecuada, de los canales que tengo en el
 // fichero cadenasHOME.js de modo que cuando un cliente Tvheadend seleccione
-// (o se asocie) al TAG REMOTE solo recibirá estos canales. 
+// (o se asocie) al TAG REMOTE solo recibirá estos canales.
 //
 // El caso de uso es el de poder separar qué tipo de canales quiero recibir
-// en dispositivo tablet vía Wifi. 
+// en dispositivo tablet vía Wifi.
 //
 // Esta forma de trabajar es muy personal, si prefieres utilizar otra técnica
-// juega con ambos ficheros y las etiquetas 'tvh_tag' para adaptarlo a tu gusto. 
+// juega con ambos ficheros y las etiquetas 'tvh_tag' para adaptarlo a tu gusto.
 //
-// Cadenas de TV exclusivamente en 'SD', que etiqueto con 'REMOTE' para 
+// Cadenas de TV exclusivamente en 'SD', que etiqueto con 'REMOTE' para
 // poder hacer filtros en Tvheadend. Principalmente orientado a Tablets
 //
 const cadenasREMOTE = [
@@ -100,29 +100,7 @@ const cadenasREMOTE = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.0.25:8208",
-    "movistar_id": "DESCONOCIDO2",
-    "movistar_nombre": "Telemadrid",
-    "movistar_numero": "8",
-    "tvh_id": "Telemadrid.es",
-    "tvh_m3u": true,
-    "tvh_nombre": "Telemadrid",
-    "tvh_tag": "SD|REMOTE"
-  },
-  {
-    "movistar_epg": false,
-    "movistar_fuente": "239.0.0.26:8208",
-    "movistar_id": "OTRA",
-    "movistar_nombre": "La Otra",
-    "movistar_numero": "9",
-    "tvh_id": "OTRA.es",
-    "tvh_m3u": true,
-    "tvh_nombre": "La Otra",
-    "tvh_tag": "SD|REMOTE"
-  },
-  {
-    "movistar_epg": false,
-    "movistar_fuente": "239.0.3.32:8208", 
+    "movistar_fuente": "239.0.3.32:8208",
     "movistar_id": "CABECERA_SERIES",
     "movistar_nombre": "SERIES",
     "movistar_numero": "10",
@@ -760,18 +738,6 @@ const cadenasREMOTE = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.1.140:8208",
-    "movistar_id": "CFERIA",
-    "movistar_nombre": "Toros TV",
-    "movistar_numero": "67",
-    "tvh_categoria": "Arts / Culture (without music)",
-    "tvh_id": "CFERIA.es",
-    "tvh_m3u": true,
-    "tvh_nombre": "Toros TV",
-    "tvh_tag": "SD|REMOTE"
-  },
-  {
-    "movistar_epg": false,
     "movistar_fuente": "239.0.0.103:8208",
     "movistar_id": "NATGEO",
     "movistar_nombre": "National Geographic",
@@ -805,7 +771,7 @@ const cadenasREMOTE = [
     "tvh_m3u": true,
     "tvh_nombre": "Historia",
     "tvh_tag": "SD|REMOTE"
-  }, 
+  },
   {
     "movistar_epg": false,
     "movistar_fuente": "239.0.0.21:8208",
@@ -839,7 +805,7 @@ const cadenasREMOTE = [
     "tvh_m3u": true,
     "tvh_nombre": "A&E",
     "tvh_tag": "SD|REMOTE"
-  },  
+  },
   {
     "movistar_epg": false,
     "movistar_fuente": "239.0.0.20:8208",
