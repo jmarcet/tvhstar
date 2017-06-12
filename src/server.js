@@ -62,7 +62,7 @@ let progPreferences = {
   // uri_prefix: 'http://x.x.x.x:yyy/udp/'
   // uri_prefix: 'http://192.168.100.1:4022/udp/',
   //uri_prefix: 'rtp://@',
-  uri_prefix: 'http://192.168.11.3:4022/rtp/',
+  uri_prefix: 'http://192.168.1.5:14022/rtp/',
 
   // Respecto a XMLTV, el objetivo es crear un fichero XMLTV compatible con
   // "http://xmltv.cvs.sourceforge.net/viewvc/xmltv/xmltv/xmltv.dtd"
